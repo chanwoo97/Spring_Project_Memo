@@ -1,7 +1,7 @@
-11_0701_db_수정.txt<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="webdb@localhost" uuid="cf67eca2-7f6b-4ce1-913e-b11477526498">
+    <data-source source="LOCAL" name="webdb@localhost" uuid="004cd015-9e81-4820-bddb-c54d71e17ba3">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

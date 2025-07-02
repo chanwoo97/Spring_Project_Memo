@@ -1,20 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: it
-  Date: 25. 7. 1.
-  Time: 오전 11:04
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--베이스 레이아웃 접근 주소 ,
 http://localhost:8080/resources/test.html-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register</title>
+    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -63,50 +56,47 @@ http://localhost:8080/resources/test.html-->
                 <!--        카드 시작 부분-->
                 <div class="card">
                     <div class="card-header">
-                        Todo 등록하기
+                        tno로 번호로 하나조회, 상세조회
                     </div>
                     <div class="card-body">
-                        <form action="/todo/register" method="post">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Title</span>
-                                <input type="text" name="title" class="form-control" placeholder="제목을 입력하세요"> </input>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">DueDate</span>
-                                <input type="date" name="dueDate" class="form-control"> </input>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Writer</span>
-                                <input type="text" name="writer" class="form-control" placeholder="작성자를 입력하세요"> </input>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="form-check-label">Finished</span>&nbsp
-                                <input type="checkbox" name="finished" class="form-check-input"> </input>
-                            </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Tno</span>
+                            <input type="text" name="tno" class="form-control" readonly
+                                   value=<c:out value="${dto.tno}"></c:out> >
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Title</span>
+                            <input type="text" name="title" class="form-control" readonly
+                                   value='<c:out value="${dto.title}"></c:out>'>
+                        </div>
 
-                            <div class="my-4">
-                                <div class="float-end">
-                                    <button type="submit" class="btn btn-primary">등록하기</button>
-                                    <button type="reset" class="btn btn-secondary">초기화하기</button>
-                                </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">DueDate</span>
+                            <input type="date" name="dueDate" class="form-control" readonly
+                                   value=<c:out value="${dto.dueDate}"></c:out>>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Writer</span>
+                            <input type="text" name="writer" class="form-control" readonly
+                                   value=<c:out value="${dto.writer}"></c:out>>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="form-check-label">Finished &nbsp</label>
+                            <input type="checkbox" name="finished" class="form-check-input" readonly
+                            ${dto.finished ? "checked" : ""}>
+                        </div>
+                        <div class="my-4">
+                            <div class="float-end">
+                                <button type="button" class="btn btn-primary">수정하기</button>
+                                <button type="button" class="btn btn-secondary">목록가기</button>
                             </div>
-
-                        </form>
-<%--                        서버로 부터 유효성 체크 통과를 못했을 경우에, errors 키로 받아온 --%>
-<%--                        에러 정보를 , 웹브라우저 콘솔에 일단 표기 해보기--%>
-                        <script>
-                            const serverValidResult = {}
-                            <c:forEach items="${errors}" var="error">
-                            serverValidResult['${error.getField()}'] = '${error.defaultMessage}'
-                            </c:forEach>
-                            console.log(serverValidResult)
-                        </script>
-
-
+                        </div>
+                        <%--                        </form>--%>
+                        <%--                        Todo 입력 폼 여기에 작성--%>
 
                     </div>
                     </div>
-
                 </div>
                 <!--        카드 끝 부분-->
             </div>
@@ -133,4 +123,3 @@ http://localhost:8080/resources/test.html-->
         crossorigin="anonymous"></script>
 </body>
 </html>
-
